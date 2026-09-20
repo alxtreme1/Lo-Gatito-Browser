@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Lo Gatito Browser 😺</name>
+	<gx:CascadingStyle kml:id="__managed_style_0A8B1B424141F6266850_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<width>1.5</width>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h1><b>Melhor Browser do Mercado:</b> $[name]😺</h1>
+<hr><br>
+
+            <h2><b>Atalhos Rápidos:</b></h2>
+
+            <a href="https://www.google.com.br">GOOGLE</a><br><br>
+
+            <a href="https://ankiweb.net">ANKIWEB (Flashcards)</a><br><br>
+
+            <a href="https://www.youtube.com">YOUTUBE</a><br><br>
+
+            <a href="https://music.youtube.com">YOUTUBE MUSIC</a><br><br>
+
+            <a href="https://www.uber.com/br/pt-br/ride/how-it-works/request-an-uber-ride-without-the-app/">UBER</a><br><br>
+
+            <a href="https://gemini.google.com/">GEMINI</a><br><br>
+
+            <a href="https://chat.openai.com">ChatGPT</a><br><br>
+
+            <a href="https://www.duolingo.com/learn">Duolingo</a><br><br>
+
+            <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos">GranQuestões</a><br><br>
+
+            <a href="https://www.qconcursos.com/questoes-de-concursos/questoes">QConcursos Questões</a><br><br>
+
+            <a href="https://instagram.com">Instagram</a><br><br>
+
+            <a href="https://translate.google.com">Tradutor</a><br><br>
+
+            <a href="https://ifood.com.br/inicio">Ifood</a><br><br>
+
+            <a href="https://drive.google.com/">Google Drive</a><br><br>
+
+            <a href="https://linhas.cittamobi.com.br/">Cittamobi</a><br><br>
+
+            <a href="https://moovitapp.com/pt-br">Moovit</a><br><br>
+
+            <hr>
+            <b>Informações Adicionais:</b>
+            $[description]]]></text>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0A8B1B424141F6266850_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<width>1</width>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h1><b>Melhor Browser do Mercado:</b> $[name]😺</h1>
+<hr><br>
+
+            <h2><b>Atalhos Rápidos:</b></h2>
+
+            <a href="https://www.google.com.br">GOOGLE</a><br><br>
+
+            <a href="https://ankiweb.net">ANKIWEB (Flashcards)</a><br><br>
+
+            <a href="https://www.youtube.com">YOUTUBE</a><br><br>
+
+            <a href="https://music.youtube.com">YOUTUBE MUSIC</a><br><br>
+
+            <a href="https://www.uber.com/br/pt-br/ride/how-it-works/request-an-uber-ride-without-the-app/">UBER</a><br><br>
+
+            <a href="https://gemini.google.com/">GEMINI</a><br><br>
+
+            <a href="https://chat.openai.com">ChatGPT</a><br><br>
+
+            <a href="https://www.duolingo.com/learn">Duolingo</a><br><br>
+
+            <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos">GranQuestões</a><br><br>
+
+            <a href="https://www.qconcursos.com/questoes-de-concursos/questoes">QConcursos Questões</a><br><br>
+
+            <a href="https://instagram.com">Instagram</a><br><br>
+
+            <a href="https://translate.google.com">Tradutor</a><br><br>
+
+            <a href="https://ifood.com.br/inicio">Ifood</a><br><br>
+
+            <a href="https://drive.google.com/">Google Drive</a><br><br>
+
+            <a href="https://linhas.cittamobi.com.br/">Cittamobi</a><br><br>
+
+            <a href="https://moovitapp.com/pt-br">Moovit</a><br><br>
+
+            <hr>
+            <b>Informações Adicionais:</b>
+            $[description]]]></text>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0A8B1B424141F6266850">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_0A8B1B424141F6266850_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0A8B1B424141F6266850_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="00248F15EE41F5AFB446">
+		<name>LO GATITO</name>
+		<styleUrl>#__managed_style_0A8B1B424141F6266850</styleUrl>
+		<Point>
+			<coordinates>-35.207871,-5.820827,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

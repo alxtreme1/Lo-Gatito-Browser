@@ -13,102 +13,183 @@
 		</IconStyle>
 		<BalloonStyle>
 			<text><![CDATA[
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 2px; max-width: 320px; color: #1f2937;">
+<style>
+    .gatito-container {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        padding: 2px;
+        max-width: 320px;
+        color: #1f2937;
+    }
+    .gatito-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #2563eb;
+    }
+    .gatito-title {
+        font-size: 15px;
+        font-weight: bold;
+        color: #1e3a8a;
+    }
+    .gatito-badge {
+        font-size: 10px;
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+    .btn-github {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+        margin-bottom: 12px;
+        background: #24292e;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+    .icon-github {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        filter: brightness(0) invert(1);
+    }
+    .section-title {
+        font-size: 11px;
+        font-weight: bold;
+        color: #4b5563;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .shortcuts-list {
+        max-height: 260px;
+        overflow-y: auto;
+        padding-right: 2px;
+    }
+    .shortcut-card {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        margin-bottom: 6px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #1f2937;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .shortcut-icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+    }
+</style>
+
+<div class="gatito-container">
     
     <!-- Cabeçalho -->
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #2563eb;">
-        <div style="font-size: 15px; font-weight: bold; color: #1e3a8a;">
+    <div class="gatito-header">
+        <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span style="font-size: 10px; background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 10px; font-weight: 600;">v2.0</span>
+        <span class="gatito-badge">v2.0</span>
     </div>
 
-    <!-- Botão de Download / GitHub -->
-    <a href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; margin-bottom: 12px; background: #24292e; border-radius: 8px; text-decoration: none; color: #ffffff; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">
-        <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px; filter: brightness(0) invert(1);" />
+    <!-- Botão do GitHub -->
+    <a href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" class="btn-github">
+        <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" class="icon-github" />
         <span>Baixar / Atualizar no GitHub 🚀</span>
     </a>
 
     <!-- Título da Seção -->
-    <div style="font-size: 11px; font-weight: bold; color: #4b5563; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
-        Atalhos Rápidos
-    </div>
+    <div class="section-title">Atalhos Rápidos</div>
 
-    <!-- Lista de Atalhos com Ícones -->
-    <div style="max-height: 260px; overflow-y: auto; padding-right: 2px;">
+    <!-- Lista de Atalhos -->
+    <div class="shortcuts-list">
         
-        <a href="https://www.google.com.br" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://www.google.com.br" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" class="shortcut-icon" />
             <span>Google</span>
         </a>
 
-        <a href="https://ankiweb.net" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://ankiweb.net" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" class="shortcut-icon" />
             <span>AnkiWeb (Flashcards)</span>
         </a>
 
-        <a href="https://www.youtube.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://www.youtube.com" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" class="shortcut-icon" />
             <span>YouTube</span>
         </a>
 
-        <a href="https://music.youtube.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://music.youtube.com" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" class="shortcut-icon" />
             <span>YouTube Music</span>
         </a>
 
-        <a href="https://gemini.google.com/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://gemini.google.com/" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" class="shortcut-icon" />
             <span>Gemini AI</span>
         </a>
 
-        <a href="https://chatgpt.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://chatgpt.com" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" class="shortcut-icon" />
             <span>ChatGPT</span>
         </a>
 
-        <a href="https://www.duolingo.com/learn" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://www.duolingo.com/learn" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" class="shortcut-icon" />
             <span>Duolingo</span>
         </a>
 
-        <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" class="shortcut-icon" />
             <span>GranQuestões</span>
         </a>
 
-        <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" class="shortcut-icon" />
             <span>QConcursos</span>
         </a>
 
-        <a href="https://instagram.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://instagram.com" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" class="shortcut-icon" />
             <span>Instagram</span>
         </a>
 
-        <a href="https://translate.google.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://translate.google.com" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" class="shortcut-icon" />
             <span>Google Tradutor</span>
         </a>
 
-        <a href="https://ifood.com.br/inicio" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://ifood.com.br/inicio" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" class="shortcut-icon" />
             <span>iFood</span>
         </a>
 
-        <a href="https://drive.google.com/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://drive.google.com/" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" class="shortcut-icon" />
             <span>Google Drive</span>
         </a>
 
-        <a href="https://linhas.cittamobi.com.br/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://linhas.cittamobi.com.br/" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" class="shortcut-icon" />
             <span>Cittamobi</span>
         </a>
 
-        <a href="https://moovitapp.com/pt-br" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
-            <img src="https://www.google.com/s2/favicons?domain=moovitapp.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+        <a href="https://moovitapp.com/pt-br" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=moovitapp.com&amp;sz=32" class="shortcut-icon" />
             <span>Moovit</span>
         </a>
 

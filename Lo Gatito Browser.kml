@@ -178,6 +178,11 @@
             <span>iFood</span>
         </a>
 
+		<a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=uber.com&amp;sz=32" class="shortcut-icon" />
+            <span>Uber</span>
+        </a>
+
         <a href="https://drive.google.com/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" class="shortcut-icon" />
             <span>Google Drive</span>

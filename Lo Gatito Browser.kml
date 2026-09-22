@@ -2,136 +2,126 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>Lo Gatito Browser 😺</name>
-	<gx:CascadingStyle kml:id="__managed_style_0A8B1B424141F6266850_highlight">
-		<Style>
-			<IconStyle>
-				<scale>1.2</scale>
-				<Icon>
-					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-				</Icon>
-			</IconStyle>
-			<LabelStyle>
-			</LabelStyle>
-			<LineStyle>
-				<width>1.5</width>
-			</LineStyle>
-			<PolyStyle>
-			</PolyStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h1><b>Melhor Browser do Mercado:</b> $[name]😺</h1>
-<hr><br>
+	
+	<!-- Estilo do Balão -->
+	<Style id="estilo_gatito">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text><![CDATA[
+<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 2px; max-width: 320px; color: #1f2937;">
+    
+    <!-- Cabeçalho -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #2563eb;">
+        <div style="font-size: 15px; font-weight: bold; color: #1e3a8a;">
+            <span>😺</span> <span>Lo Gatito Browser</span>
+        </div>
+        <span style="font-size: 10px; background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 10px; font-weight: 600;">v2.0</span>
+    </div>
 
-            <h2><b>Atalhos Rápidos:</b></h2>
+    <!-- Botão de Download / GitHub -->
+    <a href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; margin-bottom: 12px; background: #24292e; border-radius: 8px; text-decoration: none; color: #ffffff; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">
+        <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px; filter: brightness(0) invert(1);" />
+        <span>Baixar / Atualizar no GitHub 🚀</span>
+    </a>
 
-            <a href="https://www.google.com.br">GOOGLE</a><br><br>
+    <!-- Título da Seção -->
+    <div style="font-size: 11px; font-weight: bold; color: #4b5563; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+        Atalhos Rápidos
+    </div>
 
-            <a href="https://ankiweb.net">ANKIWEB (Flashcards)</a><br><br>
+    <!-- Lista de Atalhos com Ícones -->
+    <div style="max-height: 260px; overflow-y: auto; padding-right: 2px;">
+        
+        <a href="https://www.google.com.br" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Google</span>
+        </a>
 
-            <a href="https://www.youtube.com">YOUTUBE</a><br><br>
+        <a href="https://ankiweb.net" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>AnkiWeb (Flashcards)</span>
+        </a>
 
-            <a href="https://music.youtube.com">YOUTUBE MUSIC</a><br><br>
+        <a href="https://www.youtube.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>YouTube</span>
+        </a>
 
-            <a href="https://www.uber.com/br/pt-br/ride/how-it-works/request-an-uber-ride-without-the-app/">UBER</a><br><br>
+        <a href="https://music.youtube.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>YouTube Music</span>
+        </a>
 
-            <a href="https://gemini.google.com/">GEMINI</a><br><br>
+        <a href="https://gemini.google.com/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Gemini AI</span>
+        </a>
 
-            <a href="https://chat.openai.com">ChatGPT</a><br><br>
+        <a href="https://chatgpt.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>ChatGPT</span>
+        </a>
 
-            <a href="https://www.duolingo.com/learn">Duolingo</a><br><br>
+        <a href="https://www.duolingo.com/learn" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Duolingo</span>
+        </a>
 
-            <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos">GranQuestões</a><br><br>
+        <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>GranQuestões</span>
+        </a>
 
-            <a href="https://www.qconcursos.com/questoes-de-concursos/questoes">QConcursos Questões</a><br><br>
+        <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>QConcursos</span>
+        </a>
 
-            <a href="https://instagram.com">Instagram</a><br><br>
+        <a href="https://instagram.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Instagram</span>
+        </a>
 
-            <a href="https://translate.google.com">Tradutor</a><br><br>
+        <a href="https://translate.google.com" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Google Tradutor</span>
+        </a>
 
-            <a href="https://ifood.com.br/inicio">Ifood</a><br><br>
+        <a href="https://ifood.com.br/inicio" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>iFood</span>
+        </a>
 
-            <a href="https://drive.google.com/">Google Drive</a><br><br>
+        <a href="https://drive.google.com/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Google Drive</span>
+        </a>
 
-            <a href="https://linhas.cittamobi.com.br/">Cittamobi</a><br><br>
+        <a href="https://linhas.cittamobi.com.br/" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Cittamobi</span>
+        </a>
 
-            <a href="https://moovitapp.com/pt-br">Moovit</a><br><br>
+        <a href="https://moovitapp.com/pt-br" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin-bottom: 6px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: #1f2937; font-size: 12px; font-weight: 500;">
+            <img src="https://www.google.com/s2/favicons?domain=moovitapp.com&amp;sz=32" style="width: 16px; height: 16px; border-radius: 3px;" />
+            <span>Moovit</span>
+        </a>
 
-            <hr>
-            <b>Informações Adicionais:</b>
-            $[description]]]></text>
-			</BalloonStyle>
-		</Style>
-	</gx:CascadingStyle>
-	<gx:CascadingStyle kml:id="__managed_style_0A8B1B424141F6266850_normal">
-		<Style>
-			<IconStyle>
-				<Icon>
-					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-				</Icon>
-			</IconStyle>
-			<LabelStyle>
-			</LabelStyle>
-			<LineStyle>
-				<width>1</width>
-			</LineStyle>
-			<PolyStyle>
-			</PolyStyle>
-			<BalloonStyle>
-				<text><![CDATA[<h1><b>Melhor Browser do Mercado:</b> $[name]😺</h1>
-<hr><br>
+    </div>
+</div>
+]]></text>
+		</BalloonStyle>
+	</Style>
 
-            <h2><b>Atalhos Rápidos:</b></h2>
-
-            <a href="https://www.google.com.br">GOOGLE</a><br><br>
-
-            <a href="https://ankiweb.net">ANKIWEB (Flashcards)</a><br><br>
-
-            <a href="https://www.youtube.com">YOUTUBE</a><br><br>
-
-            <a href="https://music.youtube.com">YOUTUBE MUSIC</a><br><br>
-
-            <a href="https://www.uber.com/br/pt-br/ride/how-it-works/request-an-uber-ride-without-the-app/">UBER</a><br><br>
-
-            <a href="https://gemini.google.com/">GEMINI</a><br><br>
-
-            <a href="https://chat.openai.com">ChatGPT</a><br><br>
-
-            <a href="https://www.duolingo.com/learn">Duolingo</a><br><br>
-
-            <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos">GranQuestões</a><br><br>
-
-            <a href="https://www.qconcursos.com/questoes-de-concursos/questoes">QConcursos Questões</a><br><br>
-
-            <a href="https://instagram.com">Instagram</a><br><br>
-
-            <a href="https://translate.google.com">Tradutor</a><br><br>
-
-            <a href="https://ifood.com.br/inicio">Ifood</a><br><br>
-
-            <a href="https://drive.google.com/">Google Drive</a><br><br>
-
-            <a href="https://linhas.cittamobi.com.br/">Cittamobi</a><br><br>
-
-            <a href="https://moovitapp.com/pt-br">Moovit</a><br><br>
-
-            <hr>
-            <b>Informações Adicionais:</b>
-            $[description]]]></text>
-			</BalloonStyle>
-		</Style>
-	</gx:CascadingStyle>
-	<StyleMap id="__managed_style_0A8B1B424141F6266850">
-		<Pair>
-			<key>normal</key>
-			<styleUrl>#__managed_style_0A8B1B424141F6266850_normal</styleUrl>
-		</Pair>
-		<Pair>
-			<key>highlight</key>
-			<styleUrl>#__managed_style_0A8B1B424141F6266850_highlight</styleUrl>
-		</Pair>
-	</StyleMap>
-	<Placemark id="00248F15EE41F5AFB446">
+	<!-- Ponto do Marcador -->
+	<Placemark>
 		<name>LO GATITO</name>
-		<styleUrl>#__managed_style_0A8B1B424141F6266850</styleUrl>
+		<styleUrl>#estilo_gatito</styleUrl>
 		<Point>
 			<coordinates>-35.207871,-5.820827,0</coordinates>
 		</Point>

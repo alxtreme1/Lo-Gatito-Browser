@@ -120,7 +120,7 @@
 
 	<!-- Ponto do Marcador -->
 	<Placemark>
-		<name>LO GATITO</name>
+		<name>LO GATITO (clique aqui)</name>
 		<styleUrl>#estilo_gatito</styleUrl>
 		<Point>
 			<coordinates>-35.207871,-5.820827,0</coordinates>

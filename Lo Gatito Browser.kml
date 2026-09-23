@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>Lo Gatito Browser 😺</name>
-	
-	<!-- Estilo do Balão -->
-	<Style id="estilo_gatito">
-		<IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-				<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
-			</Icon>
-		</IconStyle>
-		<BalloonStyle>
-			<text><![CDATA[
+    <name>Lo Gatito Browser 😺</name>
+    
+    <Style id="estilo_gatito">
+        <IconStyle>
+            <scale>1.2</scale>
+            <Icon>
+                <href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+            </Icon>
+        </IconStyle>
+        <BalloonStyle>
+            <text><![CDATA[
 <style>
+    /* Estilos Gerais */
     .gatito-container {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         padding: 2px;
@@ -41,27 +41,57 @@
         border-radius: 10px;
         font-weight: 600;
     }
+
+    /* Caixa de Atualização */
+    .update-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .update-label {
+        font-size: 11px;
+        color: #475569;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+    .btn-check {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        color: #334155;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
     .btn-github {
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding: 10px;
-        margin-bottom: 12px;
+        padding: 8px;
         background: #24292e;
-        border-radius: 8px;
+        border-radius: 6px;
         text-decoration: none;
         color: #ffffff;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: bold;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        width: 100%;
+        box-sizing: border-box;
     }
     .icon-github {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         border-radius: 3px;
         filter: brightness(0) invert(1);
     }
+
+    /* Lista de Atalhos */
     .section-title {
         font-size: 11px;
         font-weight: bold;
@@ -71,7 +101,7 @@
         letter-spacing: 0.5px;
     }
     .shortcuts-list {
-        max-height: 260px;
+        max-height: 220px;
         overflow-y: auto;
         padding-right: 2px;
     }
@@ -94,28 +124,64 @@
         height: 16px;
         border-radius: 3px;
     }
+
+    /* Rodapé e Créditos do Repositório */
+    .gatito-footer {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: center;
+    }
+    .btn-credits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #334155;
+        font-size: 10px;
+        font-weight: bold;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .btn-credits:active, .btn-credits:hover {
+        background: #e2e8f0;
+    }
+    .icon-credits {
+        width: 14px;
+        height: 14px;
+    }
 </style>
 
 <div class="gatito-container">
-    
-    <!-- Cabeçalho -->
     <div class="gatito-header">
         <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span class="gatito-badge">v2.0</span>
+        <span class="gatito-badge" id="badge-versao">v2.0.0</span>
     </div>
 
-    <!-- Botão do GitHub -->
-    <a href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" class="btn-github">
-        <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" class="icon-github" />
-        <span>Baixar / Atualizar no GitHub 🚀</span>
-    </a>
+    <!-- Interface de Verificação (GitHub API) -->
+    <div class="update-box">
+        <div id="status-label" class="update-label">Verificar se há atualizações</div>
+        
+        <button id="btn-verificar" class="btn-check" onclick="consultarGitHub()">
+            🔄 Buscar Atualizações
+        </button>
 
-    <!-- Título da Seção -->
+        <a href="https://github.com/alxtreme1/Lo-Gatito-Browser/releases/latest" target="_blank" id="btn-github" class="btn-github">
+            <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" class="icon-github" />
+            <span id="btn-github-text">Baixar Nova Versão</span>
+        </a>
+    </div>
+
     <div class="section-title">Atalhos Rápidos</div>
 
-    <!-- Lista de Atalhos -->
     <div class="shortcuts-list">
         
         <a href="https://www.google.com.br" target="_blank" class="shortcut-card">
@@ -178,7 +244,7 @@
             <span>iFood</span>
         </a>
 
-		<a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
+        <a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=uber.com&amp;sz=32" class="shortcut-icon" />
             <span>Uber</span>
         </a>
@@ -198,19 +264,102 @@
             <span>Moovit</span>
         </a>
 
-    </div>
-</div>
-]]></text>
-		</BalloonStyle>
-	</Style>
+        <a href="https://onibus.online/rn/natal/" target="_blank" class="shortcut-card">
+            <img src="https://www.google.com/s2/favicons?domain=onibus.online&amp;sz=32" class="shortcut-icon" />
+            <span>Onibus Online</span>
+        </a>
 
-	<!-- Ponto do Marcador -->
-	<Placemark>
-		<name>LO GATITO (clique aqui)</name>
-		<styleUrl>#estilo_gatito</styleUrl>
-		<Point>
-			<coordinates>-35.207871,-5.820827,0</coordinates>
-		</Point>
-	</Placemark>
+    </div>
+
+    <!-- Seção de Créditos e Repositório -->
+    <div class="gatito-footer">
+        <a href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" class="btn-credits">
+            <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" class="icon-credits" />
+            Repositório Oficial (alxtreme1/Lo-Gatito-Browser)
+        </a>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    const VERSAO_ATUAL = "v2.0.0";
+    const REPOSITORIO = "alxtreme1/Lo-Gatito-Browser";
+
+    document.getElementById('badge-versao').innerText = VERSAO_ATUAL;
+
+    // Função para comparar versões (ex: "v1.1.0" > "v1.0.0")
+    function isNewerVersion(latest, current) {
+        // Remove tudo que não for número ou ponto (tira o "v", "beta", etc)
+        const v1 = latest.replace(/[^0-9.]/g, '').split('.');
+        const v2 = current.replace(/[^0-9.]/g, '').split('.');
+
+        const len = Math.max(v1.length, v2.length);
+        
+        for (let i = 0; i < len; i++) {
+            const num1 = parseInt(v1[i] || 0, 10);
+            const num2 = parseInt(v2[i] || 0, 10);
+            
+            if (num1 > num2) {
+                return true; // A do GitHub é maior
+            }
+            if (num1 < num2) {
+                return false; // A atual é maior
+            }
+        }
+        return false; // São exatamente iguais
+    }
+
+    async function consultarGitHub() {
+        const btnVerificar = document.getElementById('btn-verificar');
+        const btnGithub = document.getElementById('btn-github');
+        const label = document.getElementById('status-label');
+        const btnText = document.getElementById('btn-github-text');
+
+        btnVerificar.style.display = 'none';
+        label.innerText = 'Consultando API do GitHub... ⏳';
+        label.style.color = '#d97706';
+
+        try {
+            const response = await fetch(`https://api.github.com/repos/${REPOSITORIO}/releases/latest`);
+            
+            if (!response.ok) {
+                throw new Error('Erro ao checar repositório.');
+            }
+            
+            const data = await response.json();
+            const versaoMaisRecente = data.tag_name;
+
+            // Usa a função inteligente de comparação
+            if (versaoMaisRecente && isNewerVersion(versaoMaisRecente, VERSAO_ATUAL)) {
+                label.innerText = `⚠️ Nova versão encontrada: ${versaoMaisRecente}`;
+                label.style.color = '#dc2626';
+                btnText.innerText = `Baixar ${versaoMaisRecente} no GitHub`;
+                btnGithub.style.display = 'flex';
+            } else {
+                // Se for igual ou se a versão local for maior (testes)
+                label.innerText = `✅ Você possui a versão mais recente!`;
+                label.style.color = '#16a34a';
+                btnVerificar.style.display = 'block';
+                btnVerificar.innerText = 'Verificar Novamente';
+            }
+        } catch (error) {
+            label.innerText = '❌ Não foi possível checar. Verifique o GitHub.';
+            label.style.color = '#dc2626';
+            btnGithub.style.display = 'flex';
+            btnText.innerText = 'Verificar Manualmente no GitHub';
+        }
+    }
+</script>
+]]></text>
+        </BalloonStyle>
+    </Style>
+
+    <Placemark>
+        <name>LO GATITO (clique aqui)</name>
+        <styleUrl>#estilo_gatito</styleUrl>
+        <Point>
+            <coordinates>-35.207871,-5.820827,0</coordinates>
+        </Point>
+    </Placemark>
 </Document>
 </kml>

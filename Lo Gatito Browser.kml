@@ -101,28 +101,47 @@
         letter-spacing: 0.5px;
     }
     .shortcuts-list {
-        max-height: 220px;
+        max-height: 250px;
         overflow-y: auto;
         padding-right: 2px;
     }
     .shortcut-card {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         padding: 8px 10px;
         margin-bottom: 6px;
         background: #ffffff;
         border: 1px solid #e5e7eb;
         border-radius: 8px;
         text-decoration: none;
-        color: #1f2937;
-        font-size: 12px;
-        font-weight: 500;
+    }
+    .shortcut-card:hover {
+        background: #f8fafc;
+        border-color: #cbd5e1;
     }
     .shortcut-icon {
-        width: 16px;
-        height: 16px;
-        border-radius: 3px;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+    .shortcut-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .shortcut-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #1f2937;
+        line-height: 1.2;
+    }
+    .shortcut-desc {
+        font-size: 10px;
+        color: #6b7280;
+        margin-top: 2px;
+        line-height: 1.2;
     }
 
     /* Rodapé e Créditos do Repositório */
@@ -163,7 +182,7 @@
         <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span class="gatito-badge" id="badge-versao">v2.0.0</span>
+        <span class="gatito-badge" id="badge-versao">v2.0.1</span>
     </div>
 
     <!-- Interface de Verificação (GitHub API) -->
@@ -186,87 +205,138 @@
         
         <a href="https://www.google.com.br" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" class="shortcut-icon" />
-            <span>Google</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Google</span>
+                <span class="shortcut-desc">Pesquisas na web</span>
+            </div>
         </a>
 
         <a href="https://ankiweb.net" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" class="shortcut-icon" />
-            <span>AnkiWeb (Flashcards)</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">AnkiWeb</span>
+                <span class="shortcut-desc">Flashcards e repetição espaçada</span>
+            </div>
         </a>
 
         <a href="https://www.youtube.com" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" class="shortcut-icon" />
-            <span>YouTube</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">YouTube</span>
+                <span class="shortcut-desc">Plataforma de vídeos</span>
+            </div>
         </a>
 
         <a href="https://music.youtube.com" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" class="shortcut-icon" />
-            <span>YouTube Music</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">YouTube Music</span>
+                <span class="shortcut-desc">Streaming de músicas e álbuns</span>
+            </div>
         </a>
 
         <a href="https://gemini.google.com/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" class="shortcut-icon" />
-            <span>Gemini AI</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Gemini AI</span>
+                <span class="shortcut-desc">Inteligência Artificial do Google</span>
+            </div>
         </a>
 
         <a href="https://chatgpt.com" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" class="shortcut-icon" />
-            <span>ChatGPT</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">ChatGPT</span>
+                <span class="shortcut-desc">Assistente de IA da OpenAI</span>
+            </div>
         </a>
 
         <a href="https://www.duolingo.com/learn" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" class="shortcut-icon" />
-            <span>Duolingo</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Duolingo</span>
+                <span class="shortcut-desc">Aprenda e pratique idiomas</span>
+            </div>
         </a>
 
         <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" class="shortcut-icon" />
-            <span>GranQuestões</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">GranQuestões</span>
+                <span class="shortcut-desc">Resolução de questões de concursos</span>
+            </div>
         </a>
 
         <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" class="shortcut-icon" />
-            <span>QConcursos</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">QConcursos</span>
+                <span class="shortcut-desc">Banco de questões e provas</span>
+            </div>
         </a>
 
         <a href="https://instagram.com" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" class="shortcut-icon" />
-            <span>Instagram</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Instagram</span>
+                <span class="shortcut-desc">Rede social de fotos e vídeos</span>
+            </div>
         </a>
 
         <a href="https://translate.google.com" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" class="shortcut-icon" />
-            <span>Google Tradutor</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Google Tradutor</span>
+                <span class="shortcut-desc">Tradução de textos e documentos</span>
+            </div>
         </a>
 
         <a href="https://ifood.com.br/inicio" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" class="shortcut-icon" />
-            <span>iFood</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">iFood</span>
+                <span class="shortcut-desc">Delivery de comida e mercado</span>
+            </div>
         </a>
 
         <a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=uber.com&amp;sz=32" class="shortcut-icon" />
-            <span>Uber</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Uber</span>
+                <span class="shortcut-desc">Solicitar viagens e transporte</span>
+            </div>
         </a>
 
         <a href="https://drive.google.com/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" class="shortcut-icon" />
-            <span>Google Drive</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Google Drive</span>
+                <span class="shortcut-desc">Armazenamento de arquivos na nuvem</span>
+            </div>
         </a>
 
         <a href="https://linhas.cittamobi.com.br/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" class="shortcut-icon" />
-            <span>Cittamobi</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Cittamobi</span>
+                <span class="shortcut-desc">Horários de ônibus em tempo real</span>
+            </div>
         </a>
 
         <a href="https://moovitapp.com/pt-br" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=moovitapp.com&amp;sz=32" class="shortcut-icon" />
-            <span>Moovit</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Moovit</span>
+                <span class="shortcut-desc">Planejamento de rotas e mobilidade</span>
+            </div>
         </a>
 
         <a href="https://onibus.online/rn/natal/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=onibus.online&amp;sz=32" class="shortcut-icon" />
-            <span>Onibus Online</span>
+            <div class="shortcut-info">
+                <span class="shortcut-title">Onibus Online</span>
+                <span class="shortcut-desc">Monitoramento da frota de Natal/RN</span>
+            </div>
         </a>
 
     </div>
@@ -282,14 +352,13 @@
 </div>
 
 <script type="text/javascript">
-    const VERSAO_ATUAL = "v2.0.0";
+    const VERSAO_ATUAL = "v2.0.1";
     const REPOSITORIO = "alxtreme1/Lo-Gatito-Browser";
 
     document.getElementById('badge-versao').innerText = VERSAO_ATUAL;
 
     // Função para comparar versões (ex: "v1.1.0" > "v1.0.0")
     function isNewerVersion(latest, current) {
-        // Remove tudo que não for número ou ponto (tira o "v", "beta", etc)
         const v1 = latest.replace(/[^0-9.]/g, '').split('.');
         const v2 = current.replace(/[^0-9.]/g, '').split('.');
 
@@ -300,13 +369,13 @@
             const num2 = parseInt(v2[i] || 0, 10);
             
             if (num1 > num2) {
-                return true; // A do GitHub é maior
+                return true;
             }
             if (num1 < num2) {
-                return false; // A atual é maior
+                return false;
             }
         }
-        return false; // São exatamente iguais
+        return false;
     }
 
     async function consultarGitHub() {
@@ -329,14 +398,12 @@
             const data = await response.json();
             const versaoMaisRecente = data.tag_name;
 
-            // Usa a função inteligente de comparação
             if (versaoMaisRecente && isNewerVersion(versaoMaisRecente, VERSAO_ATUAL)) {
                 label.innerText = `⚠️ Nova versão encontrada: ${versaoMaisRecente}`;
                 label.style.color = '#dc2626';
                 btnText.innerText = `Baixar ${versaoMaisRecente} no GitHub`;
                 btnGithub.style.display = 'flex';
             } else {
-                // Se for igual ou se a versão local for maior (testes)
                 label.innerText = `✅ Você possui a versão mais recente!`;
                 label.style.color = '#16a34a';
                 btnVerificar.style.display = 'block';

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo Gatito Browser</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        padding: 8px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #ffffff;
+        color: #1f2937;
+    }
+    .gatito-container { max-width: 320px; margin: 0 auto; }
+    .gatito-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #2563eb;
+    }
+    .gatito-title { font-size: 15px; font-weight: 700; color: #1e3a8a; }
+    .gatito-badge {
+        font-size: 10px;
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .update-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .update-label {
+        font-size: 11px;
+        color: #475569;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+    .btn-check, .btn-copy {
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .btn-check {
+        background: #fff;
+        border: 1px solid #cbd5e1;
+        padding: 6px 12px;
+        color: #334155;
+        width: 100%;
+        box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+    .aviso-download {
+        display: none;
+        margin-top: 8px;
+        padding: 8px;
+        background: #fee2e2;
+        border: 1px solid #fca5a5;
+        border-radius: 6px;
+        color: #991b1b;
+        font-size: 10px;
+        line-height: 1.35;
+        text-align: left;
+    }
+    .release-link { display: flex; gap: 5px; margin-top: 8px; }
+    .release-link input {
+        min-width: 0;
+        flex: 1;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        color: #475569;
+        font-size: 10px;
+    }
+    .btn-copy {
+        border: 1px solid #2563eb;
+        padding: 6px 8px;
+        background: #2563eb;
+        color: #fff;
+        white-space: nowrap;
+    }
+    .section-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: #4b5563;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: .5px;
+    }
+    .shortcuts-list {
+        max-height: 260px;
+        overflow-y: auto;
+        padding-right: 2px;
+    }
+    .shortcut-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 10px;
+        margin-bottom: 6px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .shortcut-card:hover { background: #f8fafc; border-color: #cbd5e1; }
+    .shortcut-icon { width: 20px; height: 20px; border-radius: 4px; flex: 0 0 20px; }
+    .shortcut-info { display: flex; flex-direction: column; min-width: 0; }
+    .shortcut-title { font-size: 12px; font-weight: 700; color: #1f2937; line-height: 1.2; }
+    .shortcut-desc { font-size: 10px; color: #6b7280; margin-top: 2px; line-height: 1.2; }
+    .gatito-footer {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #e5e7eb;
+    }
+    .btn-credits {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background: #f8fafc;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #334155;
+        font-size: 10px;
+        font-weight: 700;
+        width: 100%;
+    }
+    .icon-credits { width: 14px; height: 14px; }
+</style>
+</head>
+<body>
+<div class="gatito-container">
+    <div class="gatito-header">
+        <div class="gatito-title">😺 Lo Gatito Browser</div>
+        <span class="gatito-badge" id="badge-versao">API...</span>
+    </div>
+
+    <div class="update-box">
+        <div id="status-label" class="update-label">Carregando configuração...</div>
+        <button id="btn-verificar" class="btn-check">🔄 Buscar Atualizações</button>
+        <div id="aviso-download" class="aviso-download">
+            <b>🚀 Nova atualização disponível.</b><br>
+            Copie o link abaixo e envie pelo WhatsApp ou para outro dispositivo.
+            <div class="release-link">
+                <input id="link-release" type="text" readonly value="">
+                <button id="btn-copiar" class="btn-copy">Copiar link</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">Atalhos Rápidos</div>
+    <div id="shortcuts-list" class="shortcuts-list">
+        <div class="update-label">Carregando sites pela API... ⏳</div>
+    </div>
+
+    <div class="gatito-footer">
+        <a id="repo-link" href="https://github.com/alxtreme1/Lo-Gatito-Browser" target="_blank" class="btn-credits">
+            <img src="https://www.google.com/s2/favicons?domain=github.com&amp;sz=32" class="icon-credits" alt="GitHub">
+            Repositório Oficial
+        </a>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    var API_CONFIG = 'https://raw.githubusercontent.com/alxtreme1/Lo-Gatito-Browser/main/portal-config.json';
+    var REPOSITORIO = 'alxtreme1/Lo-Gatito-Browser';
+    var VERSAO_ATUAL = '';
+
+    var lista = document.getElementById('shortcuts-list');
+    var badge = document.getElementById('badge-versao');
+    var label = document.getElementById('status-label');
+    var btnVerificar = document.getElementById('btn-verificar');
+    var avisoDownload = document.getElementById('aviso-download');
+    var campoLink = document.getElementById('link-release');
+    var btnCopiar = document.getElementById('btn-copiar');
+    var repoLink = document.getElementById('repo-link');
+
+    function mostrarTexto(el, texto) {
+        el.textContent = texto;
+    }
+
+    function limparElemento(el) {
+        while (el.firstChild) el.removeChild(el.firstChild);
+    }
+
+    function versaoMaisNova(nova, atual) {
+        var a = String(nova || '').replace(/[^0-9.]/g, '').split('.');
+        var b = String(atual || '').replace(/[^0-9.]/g, '').split('.');
+        var i, x, y, tamanho = Math.max(a.length, b.length);
+        for (i = 0; i < tamanho; i++) {
+            x = parseInt(a[i] || '0', 10);
+            y = parseInt(b[i] || '0', 10);
+            if (x > y) return true;
+            if (x < y) return false;
+        }
+        return false;
+    }
+
+    function criarCard(atalho) {
+        var link = document.createElement('a');
+        var img = document.createElement('img');
+        var info = document.createElement('div');
+        var titulo = document.createElement('span');
+        var descricao = document.createElement('span');
+        var dominio = atalho.dominio || atalho.url || '';
+
+        link.href = atalho.url;
+        link.target = '_blank';
+        link.className = 'shortcut-card';
+
+        img.className = 'shortcut-icon';
+        img.alt = '';
+        img.src = 'https://www.google.com/s2/favicons?domain=' + encodeURIComponent(dominio) + '&sz=32';
+
+        info.className = 'shortcut-info';
+        titulo.className = 'shortcut-title';
+        descricao.className = 'shortcut-desc';
+        mostrarTexto(titulo, atalho.titulo || 'Sem título');
+        mostrarTexto(descricao, atalho.descricao || atalho.url || '');
+
+        info.appendChild(titulo);
+        info.appendChild(descricao);
+        link.appendChild(img);
+        link.appendChild(info);
+
+        return link;
+    }
+
+    function carregarPortal() {
+        label.style.color = '#475569';
+        mostrarTexto(label, 'Carregando configuração...');
+
+        fetch(API_CONFIG + '?t=' + Date.now(), { cache: 'no-store' })
+            .then(function (resposta) {
+                if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+                return resposta.json();
+            })
+            .then(function (config) {
+                var i, atalho, encontrou = false;
+
+                VERSAO_ATUAL = config.versao || 'desconhecida';
+                mostrarTexto(badge, VERSAO_ATUAL);
+
+                if (config.repositorioUrl) repoLink.href = config.repositorioUrl;
+
+                limparElemento(lista);
+
+                if (!Array.isArray(config.atalhos) || !config.atalhos.length) {
+                    var vazio = document.createElement('div');
+                    vazio.className = 'update-label';
+                    mostrarTexto(vazio, 'Nenhum site foi encontrado na API.');
+                    lista.appendChild(vazio);
+                    return;
+                }
+
+                for (i = 0; i < config.atalhos.length; i++) {
+                    atalho = config.atalhos[i];
+                    if (atalho && atalho.url) {
+                        lista.appendChild(criarCard(atalho));
+                        encontrou = true;
+                    }
+                }
+
+                if (!encontrou) {
+                    var invalido = document.createElement('div');
+                    invalido.className = 'update-label';
+                    mostrarTexto(invalido, 'Nenhum site válido foi encontrado na API.');
+                    lista.appendChild(invalido);
+                }
+
+                label.style.color = '#16a34a';
+                mostrarTexto(label, 'Configuração carregada pela API ✅');
+            })
+            .catch(function () {
+                mostrarTexto(badge, 'API indisponível');
+                limparElemento(lista);
+                var erro = document.createElement('div');
+                erro.className = 'update-label';
+                erro.style.color = '#dc2626';
+                mostrarTexto(erro, '⚠️ Não foi possível carregar os sites pela API.');
+                lista.appendChild(erro);
+                label.style.color = '#dc2626';
+                mostrarTexto(label, 'Erro ao carregar a configuração.');
+            });
+    }
+
+    function copiarLink() {
+        var texto = campoLink.value || '';
+        if (!texto) return;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(texto).then(function () {
+                mostrarTexto(btnCopiar, 'Copiado!');
+                setTimeout(function () { mostrarTexto(btnCopiar, 'Copiar link'); }, 1800);
+            }).catch(function () { copiarAlternativo(texto); });
+        } else {
+            copiarAlternativo(texto);
+        }
+    }
+
+    function copiarAlternativo(texto) {
+        campoLink.focus();
+        campoLink.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        mostrarTexto(btnCopiar, 'Copiado!');
+        setTimeout(function () { mostrarTexto(btnCopiar, 'Copiar link'); }, 1800);
+    }
+
+    function consultarGitHub() {
+        if (!VERSAO_ATUAL) {
+            mostrarTexto(label, 'Ainda carregando a versão da API... ⏳');
+            carregarPortal();
+            return;
+        }
+
+        btnVerificar.style.display = 'none';
+        avisoDownload.style.display = 'none';
+        label.style.color = '#d97706';
+        mostrarTexto(label, 'Consultando versão mais recente do GitHub... ⏳');
+
+        fetch('https://api.github.com/repos/' + REPOSITORIO + '/releases/latest')
+            .then(function (resposta) {
+                if (resposta.status === 404) throw new Error('SEM_RELEASE');
+                if (!resposta.ok) throw new Error('GITHUB_HTTP_' + resposta.status);
+                return resposta.json();
+            })
+            .then(function (release) {
+                var i, asset, linkDownload = release.html_url || '', versao = release.tag_name || '';
+
+                for (i = 0; release.assets && i < release.assets.length; i++) {
+                    asset = release.assets[i];
+                    if (asset && asset.name && /\.kml$/i.test(asset.name)) {
+                        linkDownload = asset.browser_download_url || linkDownload;
+                        break;
+                    }
+                }
+
+                if (versao && versaoMaisNova(versao, VERSAO_ATUAL)) {
+                    label.style.color = '#dc2626';
+                    mostrarTexto(label, '🚀 Nova versão encontrada: ' + versao);
+                    campoLink.value = linkDownload;
+                    avisoDownload.style.display = 'block';
+                } else {
+                    label.style.color = '#16a34a';
+                    mostrarTexto(label, '✅ Você já está na versão ' + VERSAO_ATUAL + '.');
+                    btnVerificar.style.display = 'block';
+                    mostrarTexto(btnVerificar, 'Verificar Novamente');
+                }
+            })
+            .catch(function (erro) {
+                label.style.color = '#64748b';
+                if (erro && erro.message === 'SEM_RELEASE') {
+                    mostrarTexto(label, 'Nenhuma release do GitHub publicada para comparar.');
+                } else {
+                    mostrarTexto(label, 'Não foi possível consultar as releases do GitHub.');
+                }
+                btnVerificar.style.display = 'block';
+                mostrarTexto(btnVerificar, 'Tentar Novamente');
+            });
+    }
+
+    btnVerificar.addEventListener('click', consultarGitHub);
+    btnCopiar.addEventListener('click', copiarLink);
+    carregarPortal();
+})();
+</script>
+</body>
+</html>

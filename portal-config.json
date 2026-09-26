@@ -1,0 +1,22 @@
+{
+  "versao": "v2.0.2",
+  "repositorioUrl": "https://github.com/alxtreme1/Lo-Gatito-Browser",
+  "atalhos": [
+    { "titulo": "Google", "descricao": "Pesquisas na web", "url": "https://www.google.com.br", "dominio": "google.com.br" },
+    { "titulo": "AnkiWeb", "descricao": "Flashcards e repetição espaçada", "url": "https://ankiweb.net", "dominio": "ankiweb.net" },
+    { "titulo": "YouTube", "descricao": "Plataforma de vídeos", "url": "https://www.youtube.com", "dominio": "youtube.com" },
+    { "titulo": "YouTube Music", "descricao": "Streaming de músicas e álbuns", "url": "https://music.youtube.com", "dominio": "music.youtube.com" },
+    { "titulo": "Gemini AI", "descricao": "Inteligência Artificial do Google", "url": "https://gemini.google.com/", "dominio": "gemini.google.com" },
+    { "titulo": "ChatGPT", "descricao": "Assistente de IA da OpenAI", "url": "https://chatgpt.com", "dominio": "chatgpt.com" },
+    { "titulo": "Duolingo", "descricao": "Aprenda e pratique idiomas", "url": "https://www.duolingo.com/learn", "dominio": "duolingo.com" },
+    { "titulo": "GranQuestões", "descricao": "Resolução de questões de concursos", "url": "https://questoes.grancursosonline.com.br/aluno/filtro/concursos", "dominio": "grancursosonline.com.br" },
+    { "titulo": "QConcursos", "descricao": "Banco de questões e provas", "url": "https://www.qconcursos.com/questoes-de-concursos/questoes", "dominio": "qconcursos.com" },
+    { "titulo": "Instagram", "descricao": "Rede social de fotos e vídeos", "url": "https://instagram.com", "dominio": "instagram.com" },
+    { "titulo": "Google Tradutor", "descricao": "Tradução de textos e documentos", "url": "https://translate.google.com", "dominio": "translate.google.com" },
+    { "titulo": "iFood", "descricao": "Delivery de comida e mercado", "url": "https://ifood.com.br/inicio", "dominio": "ifood.com.br" },
+    { "titulo": "Uber", "descricao": "Solicitar viagens e transporte", "url": "https://www.uber.com/br/pt-br/rider-home/", "dominio": "uber.com" },
+    { "titulo": "Google Drive", "descricao": "Armazenamento de arquivos na nuvem", "url": "https://drive.google.com/", "dominio": "drive.google.com" },
+    { "titulo": "Cittamobi", "descricao": "Horários de ônibus em tempo real", "url": "https://linhas.cittamobi.com.br/", "dominio": "cittamobi.com.br" },
+    { "titulo": "Onibus Online", "descricao": "Monitoramento da frota de Natal/RN", "url": "https://onibus.online/rn/natal/", "dominio": "onibus.online" }
+  ]
+}

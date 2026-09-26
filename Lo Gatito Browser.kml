@@ -82,6 +82,31 @@
         line-height: 1.3;
         text-align: left;
     }
+    .release-link {
+        display: flex;
+        gap: 5px;
+        margin-top: 8px;
+    }
+    .release-link input {
+        min-width: 0;
+        flex: 1;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        color: #475569;
+        font-size: 10px;
+    }
+    .btn-copy {
+        border: 1px solid #2563eb;
+        border-radius: 5px;
+        padding: 6px 8px;
+        background: #2563eb;
+        color: #ffffff;
+        font-size: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        white-space: nowrap;
+    }
 
     /* Lista de Atalhos */
     .section-title {
@@ -174,7 +199,7 @@
         <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span class="gatito-badge" id="badge-versao">v2.0.2</span>
+        <span class="gatito-badge" id="badge-versao">v2.0.3</span>
     </div>
 
     <!-- Interface de Verificação (GitHub API) -->
@@ -186,7 +211,11 @@
         </button>
 
         <div id="aviso-download" class="aviso-download">
-            ⚠️ <b>Atenção:</b> O Google Earth não permite downloads de arquivos. Para atualizar o KML, acesse o GitHub (alxtreme1/Lo-Gatito-Browser) usando um navegador padrão em outro dispositivo.
+            ⚠️ <b>Nova atualização disponível.</b> Copie o link abaixo e envie pelo WhatsApp ou outro aplicativo. Abra-o em um navegador, em outro dispositivo, para baixar o novo arquivo KML. Depois, importe o arquivo no Google Earth, pois o download não pode ser feito diretamente por ele.
+            <div class="release-link">
+                <input id="link-release" type="text" readonly="readonly" value="" />
+                <button id="btn-copiar" class="btn-copy" onclick="copiarLinkRelease()">Copiar link</button>
+            </div>
         </div>
     </div>
 
@@ -314,14 +343,6 @@
             </div>
         </a>
 
-        <a href="https://moovitapp.com/pt-br" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=moovitapp.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Moovit</span>
-                <span class="shortcut-desc">Planejamento de rotas e mobilidade</span>
-            </div>
-        </a>
-
         <a href="https://onibus.online/rn/natal/" target="_blank" class="shortcut-card">
             <img src="https://www.google.com/s2/favicons?domain=onibus.online&amp;sz=32" class="shortcut-icon" />
             <div class="shortcut-info">
@@ -343,7 +364,7 @@
 </div>
 
 <script type="text/javascript">
-    const VERSAO_ATUAL = "v2.0.2";
+    const VERSAO_ATUAL = "v2.0.3";
     const REPOSITORIO = "alxtreme1/Lo-Gatito-Browser";
 
     document.getElementById('badge-versao').innerText = VERSAO_ATUAL;
@@ -369,6 +390,20 @@
         return false;
     }
 
+    async function copiarLinkRelease() {
+        const campoLink = document.getElementById('link-release');
+        const btnCopiar = document.getElementById('btn-copiar');
+
+        campoLink.select();
+        try {
+            await navigator.clipboard.writeText(campoLink.value);
+        } catch (error) {
+            document.execCommand('copy');
+        }
+        btnCopiar.innerText = 'Copiado!';
+        setTimeout(() => btnCopiar.innerText = 'Copiar link', 2000);
+    }
+
     async function consultarGitHub() {
         const btnVerificar = document.getElementById('btn-verificar');
         const avisoDownload = document.getElementById('aviso-download');
@@ -387,10 +422,13 @@
             
             const data = await response.json();
             const versaoMaisRecente = data.tag_name;
+            const assetKml = (data.assets || []).find(asset => asset.name.toLowerCase().endsWith('.kml'));
+            const linkDownload = assetKml ? assetKml.browser_download_url : data.html_url;
 
             if (versaoMaisRecente && isNewerVersion(versaoMaisRecente, VERSAO_ATUAL)) {
                 label.innerText = `🚀 Nova versão encontrada: ${versaoMaisRecente}`;
                 label.style.color = '#dc2626';
+                document.getElementById('link-release').value = linkDownload;
                 avisoDownload.style.display = 'block';
             } else {
                 label.innerText = `✅ Você possui a versão mais recente!`;

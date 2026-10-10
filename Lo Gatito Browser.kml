@@ -13,12 +13,17 @@
         <BalloonStyle>
             <text><![CDATA[
 <style>
-    /* Estilos Gerais */
+    /* Reset e Caixa Geral para evitar estouro horizontal */
+    * {
+        box-sizing: border-box;
+    }
     .gatito-container {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         padding: 2px;
+        width: 100%;
         max-width: 320px;
         color: #1f2937;
+        overflow-x: hidden;
     }
     .gatito-header {
         display: flex;
@@ -47,20 +52,20 @@
         background: #f8fafc;
         border: 1px solid #e2e8f0;
         border-radius: 8px;
-        padding: 10px;
-        margin-bottom: 12px;
+        padding: 8px;
+        margin-bottom: 10px;
         text-align: center;
     }
     .update-label {
         font-size: 11px;
         color: #475569;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         font-weight: bold;
     }
     .btn-check {
         background: #ffffff;
         border: 1px solid #cbd5e1;
-        padding: 6px 12px;
+        padding: 5px 10px;
         border-radius: 6px;
         font-size: 11px;
         color: #334155;
@@ -70,7 +75,7 @@
         box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     }
     .aviso-download {
-        display: none; /* Escondido por padrão */
+        display: none;
         margin-top: 8px;
         padding: 8px;
         background: #fee2e2;
@@ -90,7 +95,7 @@
     .release-link input {
         min-width: 0;
         flex: 1;
-        padding: 6px;
+        padding: 5px;
         border: 1px solid #cbd5e1;
         border-radius: 5px;
         color: #475569;
@@ -99,7 +104,7 @@
     .btn-copy {
         border: 1px solid #2563eb;
         border-radius: 5px;
-        padding: 6px 8px;
+        padding: 5px 8px;
         background: #2563eb;
         color: #ffffff;
         font-size: 10px;
@@ -108,63 +113,88 @@
         white-space: nowrap;
     }
 
-    /* Lista de Atalhos */
-    .section-title {
-        font-size: 11px;
-        font-weight: bold;
-        color: #4b5563;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+    /* Grade de 2 Colunas sem barra de rolagem interna */
+    .categories-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+        overflow-x: hidden;
     }
-    .shortcuts-list {
-        max-height: 250px;
-        overflow-y: auto;
-        padding-right: 2px;
+    .category-group {
+        background: #fdfdfd;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+    .section-title {
+        font-size: 10px;
+        font-weight: bold;
+        color: #1e40af;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 2px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .shortcut-card {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 8px 10px;
-        margin-bottom: 6px;
+        gap: 6px;
+        padding: 5px 6px;
+        margin-bottom: 4px;
         background: #ffffff;
         border: 1px solid #e5e7eb;
-        border-radius: 8px;
+        border-radius: 6px;
         text-decoration: none;
+        min-width: 0;
     }
     .shortcut-card:hover {
         background: #f8fafc;
         border-color: #cbd5e1;
     }
     .shortcut-icon {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
         flex-shrink: 0;
     }
     .shortcut-info {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        min-width: 0;
+        flex: 1;
     }
     .shortcut-title {
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 600;
         color: #1f2937;
         line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .shortcut-desc {
-        font-size: 10px;
+        font-size: 8px;
         color: #6b7280;
-        margin-top: 2px;
-        line-height: 1.2;
+        margin-top: 1px;
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* Rodapé e Créditos do Repositório */
     .gatito-footer {
-        margin-top: 12px;
-        padding-top: 10px;
+        margin-top: 10px;
+        padding-top: 8px;
         border-top: 1px solid #e5e7eb;
         display: flex;
         justify-content: center;
@@ -174,13 +204,13 @@
         align-items: center;
         justify-content: center;
         gap: 6px;
-        padding: 6px 12px;
+        padding: 5px 10px;
         background: #f8fafc;
         border: 1px solid #cbd5e1;
         border-radius: 6px;
         text-decoration: none;
         color: #334155;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: bold;
         width: 100%;
         box-sizing: border-box;
@@ -189,8 +219,8 @@
         background: #e2e8f0;
     }
     .icon-credits {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
     }
 </style>
 
@@ -199,7 +229,7 @@
         <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span class="gatito-badge" id="badge-versao">v2.0.3</span>
+        <span class="gatito-badge" id="badge-versao">v2.0.4</span>
     </div>
 
     <!-- Interface de Verificação (GitHub API) -->
@@ -219,137 +249,183 @@
         </div>
     </div>
 
-    <div class="section-title">Atalhos Rápidos</div>
-
-    <div class="shortcuts-list">
+    <!-- Grade de 2 Colunas livre de rolagem interna -->
+    <div class="categories-grid">
         
-        <a href="https://www.google.com.br" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Google</span>
-                <span class="shortcut-desc">Pesquisas na web</span>
-            </div>
-        </a>
+        <!-- Categoria 1: Estudos -->
+        <div class="category-group">
+            <div class="section-title">📚 Estudos</div>
 
-        <a href="https://ankiweb.net" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">AnkiWeb</span>
-                <span class="shortcut-desc">Flashcards e repetição espaçada</span>
-            </div>
-        </a>
+            <a href="https://ankiweb.net" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=ankiweb.net&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">AnkiWeb</span>
+                    <span class="shortcut-desc">Flashcards</span>
+                </div>
+            </a>
 
-        <a href="https://www.youtube.com" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">YouTube</span>
-                <span class="shortcut-desc">Plataforma de vídeos</span>
-            </div>
-        </a>
+            <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">GranQuestões</span>
+                    <span class="shortcut-desc">Concursos</span>
+                </div>
+            </a>
 
-        <a href="https://music.youtube.com" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">YouTube Music</span>
-                <span class="shortcut-desc">Streaming de músicas e álbuns</span>
-            </div>
-        </a>
+            <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">QConcursos</span>
+                    <span class="shortcut-desc">Provas</span>
+                </div>
+            </a>
 
-        <a href="https://gemini.google.com/" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Gemini AI</span>
-                <span class="shortcut-desc">Inteligência Artificial do Google</span>
-            </div>
-        </a>
+            <a href="https://encecapacitacao.ibge.gov.br/ev/my/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=ibge.gov.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Treinamento IBGE</span>
+                    <span class="shortcut-desc">Capacitação</span>
+                </div>
+            </a>
 
-        <a href="https://chatgpt.com" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">ChatGPT</span>
-                <span class="shortcut-desc">Assistente de IA da OpenAI</span>
-            </div>
-        </a>
+            <a href="https://eadcnh.bsa.estaleiro.serpro.gov.br/home?curso=673a6cc7e3bb091c6db844aa" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=serpro.gov.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Curso CNH</span>
+                    <span class="shortcut-desc">Aulas CNH</span>
+                </div>
+            </a>
 
-        <a href="https://www.duolingo.com/learn" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Duolingo</span>
-                <span class="shortcut-desc">Aprenda e pratique idiomas</span>
-            </div>
-        </a>
+            <a href="https://www.duolingo.com/learn" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=duolingo.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Duolingo</span>
+                    <span class="shortcut-desc">Idiomas</span>
+                </div>
+            </a>
+        </div>
 
-        <a href="https://questoes.grancursosonline.com.br/aluno/filtro/concursos" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=grancursosonline.com.br&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">GranQuestões</span>
-                <span class="shortcut-desc">Resolução de questões de concursos</span>
-            </div>
-        </a>
 
-        <a href="https://www.qconcursos.com/questoes-de-concursos/questoes" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=qconcursos.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">QConcursos</span>
-                <span class="shortcut-desc">Banco de questões e provas</span>
-            </div>
-        </a>
+        <!-- Categoria 2: IA & Ferramentas -->
+        <div class="category-group">
+            <div class="section-title">🤖 IA & Ferramentas</div>
 
-        <a href="https://instagram.com" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Instagram</span>
-                <span class="shortcut-desc">Rede social de fotos e vídeos</span>
-            </div>
-        </a>
+            <a href="https://gemini.google.com/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=gemini.google.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Gemini AI</span>
+                    <span class="shortcut-desc">IA do Google</span>
+                </div>
+            </a>
 
-        <a href="https://translate.google.com" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Google Tradutor</span>
-                <span class="shortcut-desc">Tradução de textos e documentos</span>
-            </div>
-        </a>
+            <a href="https://chatgpt.com" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=chatgpt.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">ChatGPT</span>
+                    <span class="shortcut-desc">IA OpenAI</span>
+                </div>
+            </a>
 
-        <a href="https://ifood.com.br/inicio" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">iFood</span>
-                <span class="shortcut-desc">Delivery de comida e mercado</span>
-            </div>
-        </a>
+            <a href="https://translate.google.com" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=translate.google.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Tradutor</span>
+                    <span class="shortcut-desc">Traduções</span>
+                </div>
+            </a>
 
-        <a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=uber.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Uber</span>
-                <span class="shortcut-desc">Solicitar viagens e transporte</span>
-            </div>
-        </a>
+            <a href="https://www.google.com.br" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=google.com.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Google</span>
+                    <span class="shortcut-desc">Pesquisas</span>
+                </div>
+            </a>
 
-        <a href="https://drive.google.com/" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Google Drive</span>
-                <span class="shortcut-desc">Armazenamento de arquivos na nuvem</span>
-            </div>
-        </a>
+            <a href="https://drive.google.com/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=drive.google.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Google Drive</span>
+                    <span class="shortcut-desc">Nuvem</span>
+                </div>
+            </a>
+        </div>
 
-        <a href="https://linhas.cittamobi.com.br/" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Cittamobi</span>
-                <span class="shortcut-desc">Horários de ônibus em tempo real</span>
-            </div>
-        </a>
 
-        <a href="https://onibus.online/rn/natal/" target="_blank" class="shortcut-card">
-            <img src="https://www.google.com/s2/favicons?domain=onibus.online&amp;sz=32" class="shortcut-icon" />
-            <div class="shortcut-info">
-                <span class="shortcut-title">Onibus Online</span>
-                <span class="shortcut-desc">Monitoramento da frota de Natal/RN</span>
-            </div>
-        </a>
+        <!-- Categoria 3: Mídia & Social -->
+        <div class="category-group">
+            <div class="section-title">🎬 Mídia & Social</div>
+
+            <a href="https://www.youtube.com" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=youtube.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">YouTube</span>
+                    <span class="shortcut-desc">Vídeos</span>
+                </div>
+            </a>
+
+            <a href="https://music.youtube.com" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=music.youtube.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">YouTube Music</span>
+                    <span class="shortcut-desc">Músicas</span>
+                </div>
+            </a>
+
+            <a href="https://globoplay.globo.com/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=globoplay.globo.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Globoplay</span>
+                    <span class="shortcut-desc">Streaming</span>
+                </div>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=instagram.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Instagram</span>
+                    <span class="shortcut-desc">Redes sociais</span>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- Categoria 4: Transporte -->
+        <div class="category-group">
+            <div class="section-title">🚌 Transporte</div>
+
+            <a href="https://linhas.cittamobi.com.br/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=cittamobi.com.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Cittamobi</span>
+                    <span class="shortcut-desc">Ônibus real-time</span>
+                </div>
+            </a>
+
+            <a href="https://onibus.online/rn/natal/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=onibus.online&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Onibus Online</span>
+                    <span class="shortcut-desc">Frota Natal/RN</span>
+                </div>
+            </a>
+
+            <a href="https://ifood.com.br/inicio" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=ifood.com.br&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">iFood</span>
+                    <span class="shortcut-desc">Delivery</span>
+                </div>
+            </a>
+
+            <a href="https://www.uber.com/br/pt-br/rider-home/" target="_blank" class="shortcut-card">
+                <img src="https://www.google.com/s2/favicons?domain=uber.com&amp;sz=32" class="shortcut-icon" />
+                <div class="shortcut-info">
+                    <span class="shortcut-title">Uber</span>
+                    <span class="shortcut-desc">Viagens</span>
+                </div>
+            </a>
+        </div>
 
     </div>
 
@@ -364,28 +440,23 @@
 </div>
 
 <script type="text/javascript">
-    const VERSAO_ATUAL = "v2.0.3";
+    const VERSAO_ATUAL = "v2.0.4";
     const REPOSITORIO = "alxtreme1/Lo-Gatito-Browser";
 
     document.getElementById('badge-versao').innerText = VERSAO_ATUAL;
 
-    // Função para comparar versões (ex: "v1.1.0" > "v1.0.0")
+    // Função para comparar versões
     function isNewerVersion(latest, current) {
         const v1 = latest.replace(/[^0-9.]/g, '').split('.');
         const v2 = current.replace(/[^0-9.]/g, '').split('.');
-
         const len = Math.max(v1.length, v2.length);
         
         for (let i = 0; i < len; i++) {
             const num1 = parseInt(v1[i] || 0, 10);
             const num2 = parseInt(v2[i] || 0, 10);
             
-            if (num1 > num2) {
-                return true;
-            }
-            if (num1 < num2) {
-                return false;
-            }
+            if (num1 > num2) return true;
+            if (num1 < num2) return false;
         }
         return false;
     }

@@ -21,7 +21,6 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         padding: 2px;
         width: 100%;
-        max-width: 320px;
         color: #1f2937;
         overflow-x: hidden;
     }
@@ -34,7 +33,7 @@
         border-bottom: 2px solid #2563eb;
     }
     .gatito-title {
-        font-size: 15px;
+        font-size: 17px;
         font-weight: bold;
         color: #1e3a8a;
     }
@@ -130,7 +129,7 @@
         min-width: 0;
     }
     .section-title {
-        font-size: 10px;
+        font-size: 14px;
         font-weight: bold;
         color: #1e40af;
         margin-bottom: 5px;
@@ -160,8 +159,8 @@
         border-color: #cbd5e1;
     }
     .shortcut-icon {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         border-radius: 3px;
         flex-shrink: 0;
     }
@@ -173,7 +172,7 @@
         flex: 1;
     }
     .shortcut-title {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
         color: #1f2937;
         line-height: 1.2;
@@ -182,7 +181,7 @@
         text-overflow: ellipsis;
     }
     .shortcut-desc {
-        font-size: 8px;
+        font-size: 10px;
         color: #6b7280;
         margin-top: 1px;
         line-height: 1.1;

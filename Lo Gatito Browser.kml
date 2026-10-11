@@ -228,7 +228,7 @@
         <div class="gatito-title">
             <span>😺</span> <span>Lo Gatito Browser</span>
         </div>
-        <span class="gatito-badge" id="badge-versao">v2.0.4</span>
+        <span class="gatito-badge" id="badge-versao">v2.0.5</span>
     </div>
 
     <!-- Interface de Verificação (GitHub API) -->
@@ -439,7 +439,7 @@
 </div>
 
 <script type="text/javascript">
-    const VERSAO_ATUAL = "v2.0.4";
+    const VERSAO_ATUAL = "v2.0.5";
     const REPOSITORIO = "alxtreme1/Lo-Gatito-Browser";
 
     document.getElementById('badge-versao').innerText = VERSAO_ATUAL;
